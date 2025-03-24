@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>Apuntes Seguridad informática - Unidad 2</title>
+      <title>Seguridad informática - Utilizando criptografía</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -172,214 +172,150 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="apuntes">Apuntes </h1>
+<h1 id="usando-criptografía">Usando Criptografía </h1>
 <p><a href="./u2.pdf">Descargar estos apuntes</a></p>
 <h2 id="índice">Índice </h2>
 
 <div class="md-toc">
 <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#introducción" class="md-toc-link">
-            <p>Introducción</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#vocabulario-básico" class="md-toc-link">
-            <p>Vocabulario básico</p>
+          <a href="#objetivos" class="md-toc-link">
+            <p>Objetivos</p>
 
           </a></div><details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#principales-objetivos-de-la-criptografía" class="md-toc-link"><p>Principales objetivos de la criptografía</p>
+          <a href="#descripción-de-la-tarea" class="md-toc-link"><p>Descripción de la tarea</p>
 </a>
           </summary>
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#confidencialidad-de-datos" class="md-toc-link">
-            <p>Confidencialidad de datos</p>
+          <a href="#cifrado-simétrico" class="md-toc-link">
+            <p>Cifrado simétrico</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#integridad-de-datos" class="md-toc-link">
-            <p>Integridad de datos</p>
+          <a href="#cifrado-asimétrico" class="md-toc-link">
+            <p>Cifrado asimétrico</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#autenticación" class="md-toc-link">
-            <p>Autenticación</p>
+          <a href="#funciones-hash" class="md-toc-link">
+            <p>Funciones hash</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#no-repudio" class="md-toc-link">
-            <p>No repudio</p>
+          <a href="#firma-digital" class="md-toc-link">
+            <p>Firma digital</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#crea-tu-certificado-digital" class="md-toc-link">
+            <p>Crea tu certificado digital</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#certificados-digitales-web" class="md-toc-link">
+            <p>Certificados digitales web</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#análisis-del-protocolo-de-cifrado-de-whatsapp" class="md-toc-link">
+            <p>Análisis del protocolo de cifrado de WhatsApp</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#firma-de-documentos-antes-de-subirlos-a-aules-usando-openssl" class="md-toc-link">
+            <p>Firma de documentos antes de subirlos a Aules usando OpenSSL</p>
 
           </a></div>
         </div>
       </details>
     <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#criptografía-simétrica-clave-privada" class="md-toc-link">
-            <p>Criptografía simétrica (clave privada)</p>
+          <a href="#criterios-de-evaluación" class="md-toc-link">
+            <p>Criterios de evaluación</p>
 
           </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#criptografía-asimétrica" class="md-toc-link">
-            <p>Criptografía asimétrica</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#criptografía-híbrida" class="md-toc-link">
-            <p>Criptografía híbrida</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#huellas-digitales-y-sumas-de-control" class="md-toc-link">
-            <p>Huellas digitales y sumas de control</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#firma-digital" class="md-toc-link">
-            <p>Firma digital</p>
-
-          </a></div><details style="padding:0;;padding-left:0px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#certificado-digital" class="md-toc-link"><p>Certificado digital</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#elementos-de-un-certificado-digital" class="md-toc-link">
-            <p>Elementos de un certificado digital</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#consejos-de-seguridad-para-certificados-digitales" class="md-toc-link">
-            <p>Consejos de seguridad para certificados digitales</p>
+          <a href="#herramientas-de-evaluación" class="md-toc-link">
+            <p>Herramientas de evaluación</p>
 
           </a></div>
-        </div>
-      </details>
-    
 </div>
 <div style="page-break-after:always;"></div>
-<h2 id="introducción">Introducción </h2>
-<p>La criptografía es el arte o ciencia de cifrar y descifrar información mediante técnicas específicas y se emplea frecuentemente para transformar mensajes de manera que sólo puedan ser leídos por personas o procesos a los que van dirigidos y que posean los medios necesarios para descifrarlos. <strong>La criptografía desempeña un papel crucial en la garantía de la confidencialidad, integridad y autenticidad de los datos</strong> durante su comunicación o almacenamiento.</p>
-<h2 id="vocabulario-básico">Vocabulario básico </h2>
-<p><img src="./img/criptografia.jpg" alt="Esquema Criptografía"></p>
+<h2 id="objetivos">Objetivos </h2>
 <ul>
-<li><strong>Texto en claro o texto plano</strong> es la información original que debe protegerse..</li>
-<li><strong>Texto cifrado o criptograma</strong> es la información expresada de manera ininteligible..</li>
-<li><strong>Algoritmo de cifrado</strong>: conjunto de reglas matemáticas y procedimientos utilizados para transformar el texto plano en texto cifrado.</li>
-<li><strong>Algoritmo de descifrado</strong>: conjunto de reglas matemáticas y procedimientos utilizados para transformar el texto cifrado en texto plano.</li>
-<li><strong>Clave</strong> es un dato adicional que recibe el algoritmo de cifrado o descifrado para cada texto a procesa. Los algoritmos de cifrado y descifrado son ampliamente conocidos y su documentación está al alcance de todos. Así, la seguridad del sistema se basa principalmente en la confidencialidad de las claves empleadas.</li>
+<li>Comprender los conceptos básicos del cifrado de datos y aplicarlos.</li>
+<li>Comprender cómo los certificados y las firmas digitales garantizan la autenticidad, integridad y no repudio de las comunicaciones digitales aplicándolos.</li>
 </ul>
-<div style="page-break-after:always;"></div>
-<div style="page-break-after:always;"></div>
-<h2 id="principales-objetivos-de-la-criptografía">Principales objetivos de la criptografía </h2>
-<h3 id="confidencialidad-de-datos">Confidencialidad de datos </h3>
+<h2 id="descripción-de-la-tarea">Descripción de la tarea </h2>
+<h3 id="cifrado-simétrico">Cifrado simétrico </h3>
+<p>Usa el comando gpg (de GnuPG) para cifrar y descifrar un mensaje de forma simétrica</p>
+<ol>
+<li>Crea un nuevo documento que contenga algún texto y nombrarlo <code>simetrico</code> (sin extensión).</li>
+<li>Cifra <code>simetrico</code>.</li>
+<li>Intenta abrir <code>simetrico</code> ¿Puedes leer el texto?</li>
+<li>Intenta abrir <code>simetrico.gpg</code> ¿Puedes leer el texto? ¿Quién ha creado este fichero con extensión <code>gpg</code>?</li>
+<li>Descifra <code>simetrico.gpg</code></li>
+<li>Explica cómo y cuándo has empleado la contraseña de cifrado/descifrado.</li>
+</ol>
+<h3 id="cifrado-asimétrico">Cifrado asimétrico </h3>
+<p>Usa el comando gpg (de GnuPG) para cifrar y descifrar de forma asimétrica</p>
+<ol>
+<li>Genera un par de claves (privada y pública)</li>
+<li>Lista las claves públicas y privadas que hay en tu anillo de claves.</li>
+<li>Exporta la clave pública a un archivo en formato ASCII y nombrarlo  <code>tunombre.pub</code>.</li>
+<li>Realiza una copia de seguridad de la clave privada y guárdala como <code>tunombre.priv</code> (debe mantenerse segura y no compartirse).</li>
+<li>Sube tu clave pública al foro de Aules (<code>tunombre.pub</code>).</li>
+<li>Descarga la clave pública de un compañero, importarla y verifica que la importación es correcta.</li>
+<li>Crea un archivo con algún texto y cifrarlo para el compañero, nombrándolo <code>PARAcompaneroDEtunombre</code>.</li>
+<li>Sube el fichero cifrado al foro de Aules.</li>
+<li>Descarga los mensajes recibidos de compañeros y descifrarlos.</li>
+<li>Almacena tu clave pública en un servidor de claves.</li>
+<li>Sospechas que tu clave privada ha sido comprometida, revócala:<br>
+a. Crea un certificado de revocación.<br>
+b. Importa el certificado de revocación que has generado.<br>
+c. Lista primero tu anillo de claves públicas y luego el de claves privadas, y comprueba qué clave ha sido revocada.<br>
+d. Una clave pública revocada no puede utilizarse para cifrar mensajes, aunque sí puede emplearse para descifrar aquellos que se hayan generado antes de la fecha de revocación ¿Qué ocurrirá si intentas cifrar un archivo con una clave pública revocada?</li>
+</ol>
+<h3 id="funciones-hash">Funciones hash </h3>
+<ol>
+<li>Calcula las sumas MD5 (<code>md5sum</code> en Linux) de dos documentos y compara los valores obtenidos.</li>
+<li>Analiza la diferencia en los valores hash de documentos que solo difieren en una letra.</li>
+</ol>
+<h3 id="firma-digital">Firma digital </h3>
+<p>Usa el comando gpg (de GnuPG) para generar y verificar una firma digital</p>
+<ol>
+<li>Crea un archivo de prueba <code>documento</code>.</li>
+<li>Genera un nuevo par de claves asimétricas.</li>
+<li>Firma <code>documento</code> y llama al resultado <code>firmado</code>.</li>
+<li>Verifica <code>firmado</code>.</li>
+<li>Verifica <code>firmado</code> y extrae su contenido.</li>
+<li>¿Cuándo deberíamos usar el parámetro <code>--clearsign</code>? ¿Cómo se emplea?</li>
+<li>¿Qué ocurre si ejecutamos el siguiente comando <code>gpg --detach-sign -a documento</code>? ¿Cuándo crees que se debe usar?</li>
+<li>Verifica el fichero <code>documento.asc</code>.</li>
+</ol>
+<h3 id="crea-tu-certificado-digital">Crea tu certificado digital </h3>
+<p>Crea un certificado autofirmado con OpenSSL y consérvalo en un lugar seguro, lo utilizaremos en otras unidades.</p>
+<h3 id="certificados-digitales-web">Certificados digitales web </h3>
+<p>Examina el certificado digital utilizado por cualquier sitio web seguro (<em>https</em>) y responde a las siguientes preguntas.</p>
+<ol>
+<li>¿Dónde podemos encontrar…?
+<ol>
+<li>la clave pública almacenada?</li>
+<li>la firma digital de la autoridad de certificación (CA)?</li>
+<li>el periodo de validez del certificado digital?</li>
+<li>un hash del certificado?</li>
+</ol>
+</li>
+</ol>
+<h3 id="análisis-del-protocolo-de-cifrado-de-whatsapp">Análisis del protocolo de cifrado de WhatsApp </h3>
 <ul>
-<li>Conjunto de reglas que impide que la información sensible sea divulgada a personas, recursos o procesos no autorizados.</li>
-<li><strong>Objetivo de la criptografía</strong>: ocultar el contenido de un mensaje ante observadores no autorizados.</li>
-<li><strong>Herramienta criptográfica empleada</strong>: cifrado y descifrado.</li>
+<li>WhatsApp usa criptografía híbrida combinando el protocolo de curva elíptica Diffie-Hellman y AES.</li>
+<li>Uso de HMAC-SHA256 para garantizar integridad y autenticidad de los mensajes.</li>
+<li>Implementación de secreto hacia adelante con rotación de claves.</li>
 </ul>
-<h3 id="integridad-de-datos">Integridad de datos </h3>
+<h3 id="firma-de-documentos-antes-de-subirlos-a-aules-usando-openssl">Firma de documentos antes de subirlos a Aules usando OpenSSL </h3>
+<hr>
+<h2 id="criterios-de-evaluación">Criterios de evaluación </h2>
 <ul>
-<li>Garantiza que la información o los procesos del sistema estén protegidos contra modificaciones intencionadas o accidentales.</li>
-<li><strong>Objetivo de la criptografía</strong>: garantizar que el mensaje no ha sido alterado.</li>
-<li><strong>Herramienta criptográfica empleada</strong>: funciones hash.</li>
+<li>Uso de sistemas de identificación como firmas electrónicas y certificados digitales.</li>
+<li>Evaluación mediante cuestionario y documento de respuestas.</li>
 </ul>
-<h3 id="autenticación">Autenticación </h3>
+<h2 id="herramientas-de-evaluación">Herramientas de evaluación </h2>
 <ul>
-<li>Proceso de verificar la identidad de un usuario, sistema o entidad que intenta acceder a un sistema informático o recurso digital.</li>
-<li><strong>Objetivo de la criptografía</strong>: verificar el origen de un mensaje (creador, tiempo de creación, etc.).</li>
-<li><strong>Herramienta criptográfica empleada</strong>: firma digital.</li>
-</ul>
-<h3 id="no-repudio">No repudio </h3>
-<ul>
-<li>Garantiza que nadie pueda negar el origen o la autenticidad de un mensaje.</li>
-<li><strong>Objetivo de la criptografía</strong>: evitar que el remitente niegue haber enviado un mensaje.</li>
-<li><strong>Herramienta criptográfica empleada</strong>: firma digital.</li>
-</ul>
-<div style="page-break-after:always;"></div>
-<h2 id="criptografía-simétrica-clave-privada">Criptografía simétrica (clave privada) </h2>
-<p>La criptografía de clave simétrica, también conocida como criptografía de clave privada, es un método en el cual se utiliza la <strong>misma clave</strong> tanto para cifrar como para descifrar los mensajes. Las dos partes que se comunican <strong>deben acordar previamente qué clave utilizar</strong> y mantenerla en secreto</p>
-<p><img src="./img/criptografiasimetrica.jpg" alt="Criptografía simétrica"></p>
-<ul>
-<li><strong>Ejemplos de algoritmos</strong>: DES, 3DES, AES.</li>
-<li><strong>Ventaja</strong><br>
-✔️ Algoritmos eficientes.</li>
-<li><strong>Desventajas</strong><br>
-❌  ¿Cómo se comparte la clave de manera segura?<br>
-❌  Se necesitan muchas claves para establecer comunicación segura entre múltiples usuarios.</li>
-</ul>
-<div style="page-break-after:always;"></div>
-<h2 id="criptografía-asimétrica">Criptografía asimétrica </h2>
-<p>La criptografía de clave asimétrica, o criptografía de clave pública, proporciona un <strong>par de claves</strong> para cada participante: una clave privada, que se mantiene en secreto, y una clave pública, que está disponible para todos los participantes. <strong>Los mensajes cifrados con una de las claves solo pueden ser descifrados con la otra</strong>.<br>
-<img src="./img/criptografiaasimetrica02.jpg" alt="Criptografía asimétrica"><br>
-La confidencialidad se logra cifrando el mensaje con la clave pública del destinatario, ya que solo él podrá descifrarlo usando su clave privada correspondiente.<br>
-<img src="./img/criptografiaasimetrica01.jpg" alt="Criptografía asimétrica"></p>
-<p>Por otro lado, el emisor puede cifrar el mensaje con su clave privada, de modo que cualquier receptor pueda verificar la autenticidad del mensaje utilizando la clave pública del emisor.</p>
-<ul>
-<li><strong>Ejemplos de algoritmos</strong>: RSA, DSA, ECC.</li>
-<li><strong>Ventaja</strong><br>
-✔️ No es necesario compartir una clave privada.</li>
-<li><strong>Desventaja</strong><br>
-❌ Los algoritmos requieren muchos recursos computacionales.</li>
-</ul>
-<div style="page-break-after:always;"></div>
-<h2 id="criptografía-híbrida">Criptografía híbrida </h2>
-<p>Se usa la criptografía asimétrica solo para compartir la clave de la criptografía simétrica, que se emplea durante la comunicación.</p>
-<div style="page-break-after:always;"></div>
-<h2 id="huellas-digitales-y-sumas-de-control">Huellas digitales y sumas de control </h2>
-<p>Las huellas digitales (fingerprints) y las sumas de control (checksums) son métodos empleados para verificar la integridad de los datos; ambas están basadas en funciones hash.</p>
-<ul>
-<li><strong>Huellas digitales</strong>: verifican que los datos no han sido alterados o corrompidos durante la transmisión o el almacenamiento.</li>
-<li><strong>Sumas de control</strong> (cheksums): empleadas para detectar errores en los datos más que para garantizar su integridad.</li>
-</ul>
-<p>Una función resumen (hash) es una función matemática o un algortimo que aplicada a un conjunto de datos de tamaño ilimitado (por ejemplo, un fichero) obtiene un número (secuencia de bits) de longitud fija, que cumple las siguientes propiedades:</p>
-<ul>
-<li>Una función hash siempre obtendrá el mismo valor resumen para el mismo conjunto de datos.<br>
-<img src="./img/determinismo.jpg" alt="Determinismo"></li>
-<li>No existe un algoritmo rápido para restaurar el conjunto de datos original a partir de su valor hash.<br>
-<img src="./img/irreversibilidad.jpg" alt="Irreversibilidad"></li>
-<li>Un cambio mínimo en el conjunto de datos da como resultado un valor hash significativamente diferente.<br>
-<img src="./img/efectoavalancha.jpg" alt="Efecto avalancha"></li>
-</ul>
-<p>Las funciones resumen tiene varias aplicaciones, como por ejemplo:</p>
-<ul>
-<li>Comprobación de la integridad de ficheros<br>
-<img src="./img/integridadhash.jpg" alt="Integridad Hash"></li>
-<li>Almacenamiento de contraseñas de usuarios en un fichero<br>
-<img src="./img/almacenamientohash.jpg" alt="Almacenamiento Hash"></li>
-</ul>
-<p>MD5, SHA-512, SHA-3 … son ejemplos de algoritmos que se utilizan para generar funciones resumen.</p>
-<div style="page-break-after:always;"></div>
-<h2 id="firma-digital">Firma digital </h2>
-<p>La <strong>firma digital</strong> de un conjunto de datos se obtiene cifrando el hash del mismo con una clave privada (mediante criptografía asimétrica). Normalmente, esta firma se adjunta al conjunto de datos. Si no se necesita confidencialidad, el conjunto de datos puede transmitirse en texto claro.</p>
-<p>Si los datos no han sido modificados, el resultado de descifrar la firma digital con la clave pública correspondiente a la clave privada utilizada debe coincidir con el valor hash de los datos. Esta comparación permite validar la firma.<br>
-<img src="./img/firmadigital.jpg" alt="Firma digital"></p>
-<div style="page-break-after:always;"></div>
-<h2 id="certificado-digital">Certificado digital </h2>
-<p>Un <strong>certificado digital</strong> es un archivo que verifica la identidad de su titular mediante credenciales criptográficas. Se usa para autenticación, cifrado y verificación de integridad de datos.</p>
-<p>Un <strong>certificado digital</strong> es una credencial criptográfica en forma de archivo que verifica la identidad de su titular. Los certificados digitales tienen una amplia variedad de usos, principalmente relacionados con la <strong>autenticación</strong>, el <strong>cifrado</strong> y la integridad de los datos. Normalmente, se almacenan en el sistema de archivos del ordenador, en tarjetas inteligentes (como el eDNI) o en dispositivos de almacenamiento. Las aplicaciones utilizan certificados digitales para asegurar la comunicación web, autenticar usuarios o firmar documentos.</p>
-<p>Las <strong>Autoridades de Certificación</strong> (CA, por sus siglas en inglés) emiten certificados digitales. Actúan como terceros de confianza, verificando y garantizando la identidad del titular del certificado</p>
-<blockquote>
-<p>📌 <strong>Nota:</strong><br>
-Un tercero de confianza es una entidad que interviene para facilitar la comunicación o el intercambio entre dos partes que no confían directamente entre sí, pero que ambas reconocen y confían en la legitimidad de ese tercero.</p>
-</blockquote>
-<h3 id="elementos-de-un-certificado-digital">Elementos de un certificado digital </h3>
-<ul>
-<li>Número de identificación.</li>
-<li>Información del titular (nombre, URL, etc.).</li>
-<li><strong>Clave pública del titular</strong>.</li>
-<li>Fecha de expiración.</li>
-<li>Información de la CA (nombre, organización, etc.).</li>
-<li><strong>Firma digital de la CA</strong>. Valida la autenticidad e integridad del certificado digital.</li>
-<li></li>
-</ul>
-<blockquote>
-<p>✋ <strong>Importante:</strong><br>
-Cada certificado digital tiene asociada una clave privada que no está contenida en el propio certificado. Esta clave privada debe ser mantenida en secreto y de forma segura por el titular del certificado, y nunca debe compartirse ni divulgarse.</p>
-</blockquote>
-<p>Un <strong>certificado autofirmado</strong> contiene la clave pública del emisor y está firmado con su propia clave privada.</p>
-<blockquote>
-<p>✋ <strong>Importante:</strong><br>
-Para verificar la firma digital de un certificado, se utiliza la clave pública de la Autoridad de Certificación (CA) emisora. Los sistemas operativos y navegadores incluyen varios certificados autofirmados de CA en las que confían.</p>
-</blockquote>
-<h3 id="consejos-de-seguridad-para-certificados-digitales">Consejos de seguridad para certificados digitales </h3>
-<ul>
-<li>Mantén tus claves privadas seguras.</li>
-<li>Usa contraseñas seguras si tu certificado está protegido por una contraseña.</li>
-<li>Guarda tu certificado en un lugar seguro, especialmente si está en una tarjeta inteligente o USB.</li>
-<li>Instala el certificado solo en tu propio equipo.</li>
+<li><strong>Cuestionario (70%)</strong>: preguntas de completar, verdadero/falso, opción múltiple.</li>
+<li><strong>Documento de respuestas (30%)</strong>: respuestas del estudiante entregadas en formato de texto.</li>
 </ul>
 
       </div>
