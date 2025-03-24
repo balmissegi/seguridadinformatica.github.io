@@ -1,9 +1,9 @@
 <!DOCTYPE html><html><head>
-      <title>Apuntes Digitalización Unidad 1</title>
+      <title>Apuntes Seguridad informática - Unidad 1</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
       
       
       
@@ -178,13 +178,157 @@
 
 <div class="md-toc">
 <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#introducción" class="md-toc-link">
-            <p>Introducción</p>
+          <a href="#1-objetivos-de-la-seguridad-informática" class="md-toc-link">
+            <ol>
+<li>Objetivos de la seguridad informática</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#2-seguridad-física-y-lógica" class="md-toc-link">
+            <ol start="2">
+<li>Seguridad física y lógica</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#3-centro-de-proceso-de-datos-cpd" class="md-toc-link">
+            <ol start="3">
+<li>Centro de proceso de datos (CPD)</li>
+</ol>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#4-autenticación-y-autorización" class="md-toc-link"><ol start="4">
+<li>Autenticación y autorización</li>
+</ol>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#listas-de-control-de-acceso-acl" class="md-toc-link">
+            <p>Listas de Control de Acceso (ACL)</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#autenticación-centralizada" class="md-toc-link"><p>Autenticación centralizada</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#en-windows" class="md-toc-link">
+            <p>En Windows:</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#en-linux" class="md-toc-link">
+            <p>En Linux:</p>
 
           </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#5-sistema-de-alimentación-ininterrumpida-sai" class="md-toc-link"><ol start="5">
+<li>Sistema de alimentación ininterrumpida (SAI)</li>
+</ol>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#factores-a-considerar-al-elegir-un-sai" class="md-toc-link">
+            <p>Factores a considerar al elegir un SAI:</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#requisitos-de-potencia" class="md-toc-link">
+            <p>Requisitos de potencia:</p>
+
+          </a></div>
+        </div>
+      </details>
+    
 </div>
 <div style="page-break-after:always;"></div>
-<h2 id="introducción">Introducción </h2>
+<h2 id="1-objetivos-de-la-seguridad-informática">1. Objetivos de la seguridad informática </h2>
+<p>La seguridad informática tiene como objetivo crear un entorno seguro donde se mitiguen los riesgos y las organizaciones puedan operar con confianza, sabiendo que sus sistemas y datos están protegidos.  Se centra en la protección de la <strong>confidencialidad, integridad y disponibilidad</strong> de la información. Otros aspectos importantes incluyen la <strong>autenticación</strong> y el <strong>no repudio</strong>.<br>
+<img src="./img/triadaCIA.jpg" alt="Triada CIA"></p>
+<ul>
+<li>
+<p><strong>Confidencialidad</strong>: Protección de la información para evitar que accedan a ella o la divulguen personas no autorizadas. Los métodos para garantizar la confidencialidad incluyen el cifrado de datos, la verificación de identidad o la autenticación multifactor</p>
+</li>
+<li>
+<p><strong>Integridad</strong>: Protección de los datos contra modificaciones o destrucciones no autorizadas.<br>
+Métodos: sumas de verificación, auditorías, controles de acceso.</p>
+</li>
+<li>
+<p><strong>Disponibilidad</strong>:Garantiza el acceso a tiempo y confiable a los datos por parte de usuarios autorizados. Algunas técnicas utilizadas para asegurar la disponibilidad incluyen el uso de SAI, RAID, copias de seguridad y redes SAN.<br>
+<img src="./img/piramideSeguridad.png" alt="Pirámide seguridad informática"></p>
+</li>
+<li>
+<p><strong>Autenticación</strong>: Es un proceso que garantiza y confirma la identidad del usuario. Algunos mecanismos de autenticación incluyen contraseñas, autenticación biométrica y autenticación multifactor.</p>
+</li>
+<li>
+<p><strong>No repudio</strong>: Proporciona prueba del origen, autenticidad e integridad de los datos. Garantiza al remitente que su mensaje ha sido entregado y ofrece al destinatario una prueba de la identidad del remitente. De esta manera, ninguna de las partes puede negar que un mensaje fue enviado, recibido y procesado. Las firmas digitales se utilizan ampliamente como mecanismos de no repudio.</p>
+</li>
+</ul>
+<hr>
+<h2 id="2-seguridad-física-y-lógica">2. Seguridad física y lógica </h2>
+<p>Los sistemas de seguridad informática funcionan de dos maneras: activa y pasiva.</p>
+<ul>
+<li><strong>Seguridad activa</strong>: Intenta prevenir un ataque o incidente antes de que ocurra, es decir, es proactiva. Estas medidas se centran en reducir la probabilidad de que ocurra una amenaza.</li>
+<li><strong>Seguridad pasiva</strong>: Se refiere a las medidas tomadas para responder a problemas de seguridad informática cuando ya han ocurrido, buscando una solución. Su objetivo es reducir el impacto de la amenaza.</li>
+</ul>
+<p>Tipos de seguridad:</p>
+<ul>
+<li><strong>Seguridad física</strong>: Protege físicamente el sistema informático. Consiste en la protección del personal, el hardware, el software, las redes y los datos contra acciones y eventos físicos que puedan causar pérdidas o daños graves.</li>
+<li><strong>Seguridad lógica</strong>: Consiste en el uso de software y sistemas para controlar y limitar el acceso a los datos e información del sistema.</li>
+</ul>
+<hr>
+<h2 id="3-centro-de-proceso-de-datos-cpd">3. Centro de proceso de datos (CPD) </h2>
+<p>El centro de procesamiento de datos (CPD) es el lugar donde se concentran gran parte de los recursos necesarios para procesar la información de una organización. Así, los CPD suelen ubicarse en un edificio o una sala grande y albergan una gran cantidad de equipos informáticos.<br>
+El CPD es un punto particularmente vulnerable, ya que en él se concentran los recursos más importantes, por lo que es especialmente necesario considerar las amenazas físicas y ambientales a la hora de diseñarlos. Al seleccionar su ubicación, se recomienda minimizar el riesgo de incendios, inundaciones, terremotos, interferencias electromagnéticas, robos, etc. Un CPD suele contar con recursos específicos orientados a la seguridad física, como sistemas de protección electrónica, sistemas de refrigeración, detección y extinción de incendios, y control de acceso biométrico. En cualquier caso, las decisiones de seguridad que se tomen dependerán del valor de los recursos a proteger y de su importancia para el negocio.<br>
+Además de las características tecnológicas de seguridad, también son importantes otras medidas, como la capacitación adecuada del personal, la realización periódica de simulaciones de recuperación ante desastres y el diseño de planes de contingencia, entre otros.</p>
+<hr>
+<h2 id="4-autenticación-y-autorización">4. Autenticación y autorización </h2>
+<p>La <strong>autenticación</strong> en el sistema operativo es un proceso mediante el cual un objeto (usuario, proceso, servicio, aplicación, etc.) verifica su identidad para obtener acceso a un sistema informático. Se pueden emplear diversos métodos de autenticación:</p>
+<ul>
+<li><strong>Conocimiento</strong>: Algo que el usuario sabe, como una contraseña, un PIN o la respuesta a una pregunta de seguridad.</li>
+<li><strong>Posesión</strong>: Algo que el usuario posee, como un teléfono móvil, una tarjeta inteligente o un certificado digital.</li>
+<li><strong>Características inherentes</strong>: Algo que el usuario es, como una huella digital, reconocimiento de voz o facial.</li>
+</ul>
+<blockquote>
+<p>La <strong>Autenticación multifactor (MFA)</strong> es un proceso de verificación de identidad que requiere el uso de al menos dos de los tres factores: conocimiento, posesión y características inherentes</p>
+</blockquote>
+<p>La <strong>autorización</strong> determina qué puede hacer o a quién puede acceder un objeto autenticado (como usuarios o procesos) dentro del sistema. Para ello, utiliza mecanismos como políticas de usuario, grupos y permisos.</p>
+<h3 id="listas-de-control-de-acceso-acl">Listas de Control de Acceso (ACL) </h3>
+<p>Los objetos autenticados deben tener acceso únicamente a los recursos necesarios para su tarea y a ninguno más. Para gestionar este acceso, se utilizan herramientas como los grupos de usuarios y las listas de control de acceso (ACLs).<br>
+Una <strong>ACL</strong> es un conjunto de reglas o permisos asociados a un archivo, directorio o recurso de red que define qué objetos pueden acceder y qué acciones están permitidas o denegadas.</p>
+<h3 id="autenticación-centralizada">Autenticación centralizada </h3>
+<p>Los sistemas operativos y las aplicaciones suelen tener sistemas de autenticación independientes, lo que obliga a los usuarios a recordar múltiples nombres de usuario, contraseñas y claves. Sin embargo, los sistemas operativos implementan métodos de gestión centralizada de usuarios.<br>
+En un sistema centralizado, se utiliza una única base de datos de usuarios y grupos, y todos los dispositivos de la red verifican las credenciales de los usuarios contra esa base de datos.</p>
+<h4 id="en-windows">En Windows: </h4>
+<p><strong>Active Directory (AD)</strong><br>
+<em>Active Directory</em> (AD) es una plataforma centralizada para la gestión de usuarios y grupos. Los <strong>dominios</strong> son contenedores lógicos que organizan y administran usuarios, grupos y equipos dentro de la red. La base de datos de usuarios, que almacena información como nombres de usuario y contraseñas, se guarda en servidores llamados <strong>controladores de dominio</strong>.</p>
+<h4 id="en-linux">En Linux: </h4>
+<p><strong>PAM</strong> (Pluggable Authentication Modules) permite que diferentes aplicaciones y servicios utilicen un sistema de autenticación común. Admite varios métodos de autenticación, como contraseñas, biometría o tarjetas inteligentes.<br>
+PAM se combina con <strong>LDAP</strong> (Lightweight Directory Access Protocol) para lograr una autenticación centralizada de usuarios. LDAP actúa como la base de datos central donde se almacenan las cuentas de usuario (nombres de usuario, contraseñas, etc.), mientras que PAM configura las políticas de autenticación para las aplicaciones..</p>
+<hr>
+<h2 id="5-sistema-de-alimentación-ininterrumpida-sai">5. Sistema de alimentación ininterrumpida (SAI) </h2>
+<p>Un <strong>SAI</strong> (Sistema de Alimentación Ininterrumpida) es un dispositivo que proporciona energía de respaldo mediante baterías cuando falla el suministro eléctrico. La mayoría también incluyen componentes eléctricos que estabilizan el voltaje de salida cuando la tensión de la red eléctrica sube o baja fuera de unos niveles aceptables.</p>
+<p>Los <strong>SAI pequeños</strong> ofrecen energía durante unos minutos, lo suficiente para apagar el equipo de forma segura, mientras que los <strong>SAI de mayor capacidad</strong> pueden suministrar energía durante varias horas.</p>
+<h3 id="factores-a-considerar-al-elegir-un-sai">Factores a considerar al elegir un SAI: </h3>
+<ul>
+<li><strong>Potencia máxima</strong>: Medida en vatios (W) o voltamperios (VA).</li>
+<li><strong>Tiempo de autonomía</strong>: Depende del número de baterías, la carga conectada y la potencia suministrada.</li>
+</ul>
+<h3 id="requisitos-de-potencia">Requisitos de potencia: </h3>
+<p>La potencia del SAI se expresa en voltio-amperios (VA), que es una medida de la potencia eléctrica total consumida por el dispositivo.<br>
+Según la ley de Ohm, en un sistema de corriente continua (CC) la potencia (en vatios) es igual a la intensidad de corriente (en amperios) multiplicada por la tensión (en voltios), W = I x V. En un circuito de corriente alterna (CA), para equiparar vatios (W) a voltios-amperios (VA) hay que considerar el pico máximo de potencia. Así, la potencia aparente (VA) se calcula como <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mi>A</mi><mo>=</mo><mi>W</mi><mi>x</mi><mn>1</mn><mo separator="true">,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">VA = W x 1,4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord mathnormal">x</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">4</span></span></span></span><br>
+Al seleccionar un SAI, se deja un margen de potencia sin utilizar  para evitar sobrecargas.</p>
+<blockquote>
+<p>📌 <strong>Nota:</strong> Una recomendación habitual es no superar el 70% de la capacidad del SAI con los dispositivos conectados.</p>
+</blockquote>
+<hr>
 
       </div>
       
