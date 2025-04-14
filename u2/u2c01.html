@@ -1,0 +1,588 @@
+<!DOCTYPE html><html><head>
+      <title>Seguridad informática - Utilizando criptografía</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/catamaran/v19/o-0bIpQoyXQa2RxT7-5B6Ryxs2E_6n1iPHjd5a7dvg.ttf) format('truetype');
+}
+.markdown-preview.markdown-preview .caso_estudio {
+  background-color: #f5f5f5;
+  border: 2px solid #969696;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .ejercicio {
+  background-color: #f5faf5;
+  border: 2px solid #969b96;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 30px auto;
+}
+.markdown-preview.markdown-preview .fondo {
+  background: url(https://programacioniesbalmis.github.io/Imagenes/BannersMoodle/banner.png);
+  background-size: cover;
+  width: 75%;
+  height: 160px;
+  border-radius: 10px;
+  position: relative;
+}
+.markdown-preview.markdown-preview .cita {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 1.5rem;
+  opacity: 0.6;
+  color: white;
+  padding: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 1.3rem;
+  transform: translate(-50%, -50%);
+}
+.markdown-preview.markdown-preview .abre_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-left: 30px;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, -15%);
+}
+.markdown-preview.markdown-preview .cierra_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-right: 30px;
+  right: 0%;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, 55%);
+}
+.markdown-preview.markdown-preview .autor {
+  font-family: Arial;
+  color: white;
+  margin: 0px;
+  padding-left: 30px;
+  position: absolute;
+  top: 83%;
+  font-size: 1rem;
+}
+.markdown-preview.markdown-preview .flotante {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: center;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: row;
+  }
+}
+.markdown-preview.markdown-preview .flotante_izq {
+  margin-right: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: auto;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: auto;
+  }
+}
+.markdown-preview.markdown-preview .galeria_imagenes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: row;
+  }
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="usando-criptografía">Usando Criptografía </h1>
+<p><a href="./u2c01.pdf">Descargar este caso</a></p>
+<h2 id="índice">Índice </h2>
+
+<div class="md-toc">
+<div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#objetivos" class="md-toc-link">
+            <p>Objetivos</p>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#descripción-de-la-tarea" class="md-toc-link"><p>Descripción de la tarea</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cifrado-simétrico" class="md-toc-link">
+            <p>Cifrado simétrico</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cifrado-asimétrico" class="md-toc-link">
+            <p>Cifrado asimétrico</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#funciones-hash" class="md-toc-link">
+            <p>Funciones hash</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#firma-digital" class="md-toc-link">
+            <p>Firma digital</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#crea-tu-certificado-digital" class="md-toc-link">
+            <p>Crea tu certificado digital</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#certificados-digitales-web" class="md-toc-link">
+            <p>Certificados digitales web</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#análisis-de-un-protocolo-de-cifrado" class="md-toc-link">
+            <p>Análisis de un protocolo de cifrado</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#firma" class="md-toc-link">
+            <p>Firma</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#entrega" class="md-toc-link">
+            <p>Entrega</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#criterios-de-evaluación" class="md-toc-link">
+            <p>Criterios de evaluación</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#herramientas-de-evaluación" class="md-toc-link">
+            <p>Herramientas de evaluación</p>
+
+          </a></div><details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#anexo-1-cifrado-y-descifrado-de-documentos--gnupg" class="md-toc-link"><p>Anexo 1: Cifrado y descifrado de documentos – GnuPG</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cifrado-simétrico-1" class="md-toc-link">
+            <p>Cifrado simétrico</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#cifrado-asimétrico-1" class="md-toc-link"><p>Cifrado asimétrico</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#generación-de-un-nuevo-par-de-claves" class="md-toc-link">
+            <p>Generación de un nuevo par de claves</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#listar-las-claves-públicas-y-privadas" class="md-toc-link">
+            <p>Listar las claves públicas y privadas</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#exportar-una-clave-pública" class="md-toc-link">
+            <p>Exportar una clave pública</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#exportar-una-clave-privada" class="md-toc-link">
+            <p>Exportar una clave privada</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#importar-una-clave-pública" class="md-toc-link">
+            <p>Importar una clave pública</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#cifrado-de-documentos" class="md-toc-link">
+            <p>Cifrado de documentos</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#descifrado-de-documentos" class="md-toc-link">
+            <p>Descifrado de documentos</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#distribución-de-claves" class="md-toc-link">
+            <p>Distribución de claves</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#generación-de-un-certificado-de-revocación" class="md-toc-link">
+            <p>Generación de un certificado de revocación</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#referencias" class="md-toc-link">
+            <p>Referencias</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#anexo-2-creación-y-verificación-de-firmas--gnupg" class="md-toc-link"><p>Anexo 2: Creación y verificación de firmas – GnuPG</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#firmar-digitalmente" class="md-toc-link">
+            <p>Firmar digitalmente</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#verificar-un-documento-firmado" class="md-toc-link">
+            <p>Verificar un documento firmado</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#verificar-un-documento-firmado-y-extraer-su-contenido" class="md-toc-link">
+            <p>Verificar un documento firmado y extraer su contenido</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#documentos-con-firma-en-claro" class="md-toc-link">
+            <p>Documentos con firma en claro</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#firmas-separadas" class="md-toc-link">
+            <p>Firmas separadas</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#referencias-1" class="md-toc-link">
+            <p>Referencias</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#anexo-3-creación-de-un-certificado-digital-pkcs12-con-openssl" class="md-toc-link"><p>Anexo 3: Creación de un certificado digital PKCS#12 con OpenSSL</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#1-genera-un-par-de-claves-rsa-pública-y-privada" class="md-toc-link">
+            <ol>
+<li>Genera un par de claves RSA (pública y privada)</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#2-genera-el-certificado-autofirmado" class="md-toc-link">
+            <ol start="2">
+<li>Genera el certificado autofirmado</li>
+</ol>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#3-convierte-el-certificado-a-formato-pkcs12" class="md-toc-link">
+            <ol start="3">
+<li>Convierte el certificado a formato PKCS#12</li>
+</ol>
+
+          </a></div>
+        </div>
+      </details>
+    
+</div>
+<div style="page-break-after:always;"></div>
+<h2 id="objetivos">Objetivos </h2>
+<ul>
+<li>Comprender los conceptos básicos del cifrado de datos y aplicarlos.</li>
+<li>Comprender cómo los certificados y las firmas digitales garantizan la autenticidad, integridad y no repudio de las comunicaciones digitales aplicándolos.</li>
+</ul>
+<h2 id="descripción-de-la-tarea">Descripción de la tarea </h2>
+<h3 id="cifrado-simétrico">Cifrado simétrico </h3>
+<p>Usa el comando gpg (de GnuPG) para cifrar y descifrar un mensaje de forma simétrica<br>
+<a href="#anexo-1-cifrado-y-descifrado-de-documentos--gnupg">Anexo 1: Cifrado y descifrado de documentos – GnuPG</a></p>
+<ol>
+<li>Crea un nuevo documento que contenga algún texto y nombrarlo <code>simetrico</code> (sin extensión).</li>
+<li>Cifra <code>simetrico</code>.</li>
+<li>Intenta abrir <code>simetrico</code> ¿Puedes leer el texto?</li>
+<li>Intenta abrir <code>simetrico.gpg</code> ¿Puedes leer el texto? ¿Quién ha creado este fichero con extensión <code>gpg</code>?</li>
+<li>Descifra <code>simetrico.gpg</code></li>
+<li>Explica cómo y cuándo has empleado la contraseña de cifrado/descifrado.</li>
+</ol>
+<h3 id="cifrado-asimétrico">Cifrado asimétrico </h3>
+<p>Usa el comando gpg (de GnuPG) para cifrar y descifrar de forma asimétrica.<br>
+<a href="#anexo-1-cifrado-y-descifrado-de-documentos--gnupg">Anexo 1: Cifrado y descifrado de documentos – GnuPG</a></p>
+<ol>
+<li>Genera un par de claves (privada y pública)</li>
+<li>Lista las claves públicas y privadas que hay en tu anillo de claves.</li>
+<li>Exporta la clave pública a un archivo en formato ASCII y nombrarlo  <code>tunombre.pub</code>.</li>
+<li>Realiza una copia de seguridad de la clave privada y guárdala como <code>tunombre.priv</code> (debe mantenerse segura y no compartirse).</li>
+<li>Sube tu clave pública al foro de Aules (<code>tunombre.pub</code>).</li>
+<li>Descarga la clave pública de un compañero, importarla y verifica que la importación es correcta.</li>
+<li>Crea un archivo con algún texto y cifrarlo para el compañero, nombrándolo <code>PARAcompaneroDEtunombre</code>.</li>
+<li>Sube el fichero cifrado al foro de Aules.</li>
+<li>Descarga los mensajes recibidos de compañeros y descifrarlos.</li>
+<li>Almacena tu clave pública en un servidor de claves.</li>
+<li>Sospechas que tu clave privada ha sido comprometida, revócala:<br>
+a. Crea un certificado de revocación.<br>
+b. Importa el certificado de revocación que has generado.<br>
+c. Lista primero tu anillo de claves públicas y luego el de claves privadas, y comprueba qué clave ha sido revocada.<br>
+d. Una clave pública revocada no puede utilizarse para cifrar mensajes, aunque sí puede emplearse para descifrar aquellos que se hayan generado antes de la fecha de revocación ¿Qué ocurrirá si intentas cifrar un archivo con una clave pública revocada?</li>
+</ol>
+<h3 id="funciones-hash">Funciones hash </h3>
+<ol>
+<li>Calcula las sumas MD5 (<code>md5sum</code> en Linux) de dos documentos y compara los valores obtenidos.</li>
+<li>Analiza la diferencia en los valores hash de documentos que solo difieren en una letra.</li>
+</ol>
+<h3 id="firma-digital">Firma digital </h3>
+<p><a href="#anexo-2-creacion-y-verificacion-de-firmas--gnupg">Anexo 2: Creación y verificación de firmas – GnuPG</a><br>
+Usa el comando gpg (de GnuPG) para generar y verificar una firma digital</p>
+<ol>
+<li>Crea un archivo de prueba <code>documento</code>.</li>
+<li>Genera un nuevo par de claves asimétricas.</li>
+<li>Firma <code>documento</code> y llama al resultado <code>firmado</code>.</li>
+<li>Verifica <code>firmado</code>.</li>
+<li>Verifica <code>firmado</code> y extrae su contenido.</li>
+<li>¿Cuándo deberíamos usar el parámetro <code>--clearsign</code>? ¿Cómo se emplea?</li>
+<li>¿Qué ocurre si ejecutamos el siguiente comando <code>gpg --detach-sign -a documento</code>? ¿Cuándo crees que se debe usar?</li>
+<li>Verifica el fichero <code>documento.asc</code>.</li>
+</ol>
+<h3 id="crea-tu-certificado-digital">Crea tu certificado digital </h3>
+<p><a href="#anexo-3-creacion-de-un-certificado-digital-pkcs12-con-openssl">Anexo 3: Creación de un certificado digital PKCS#12 con OpenSSL</a><br>
+Crea un certificado autofirmado con OpenSSL y consérvalo en un lugar seguro, lo utilizaremos en otras unidades.</p>
+<h3 id="certificados-digitales-web">Certificados digitales web </h3>
+<p>Examina el certificado digital utilizado por cualquier sitio web seguro (<em>https</em>) y responde a las siguientes preguntas.</p>
+<ol>
+<li>¿Dónde podemos encontrar…
+<ol>
+<li>la clave pública almacenada?</li>
+<li>la firma digital de la autoridad de certificación (CA)?</li>
+<li>el periodo de validez del certificado digital?</li>
+<li>un hash del certificado?</li>
+</ol>
+</li>
+<li>¿Cómo podemos averiguar…
+<ol>
+<li>quién es el propietario del certificado digital?</li>
+<li>cuál es la Autoridad de Certificación (CA)?</li>
+</ol>
+</li>
+</ol>
+<h3 id="análisis-de-un-protocolo-de-cifrado">Análisis de un protocolo de cifrado </h3>
+<p>El protocolo de mensajería de WhatsApp es un ejemplo práctico de criptografía híbrida. Explica el siguiente texto con tus propias palabras.</p>
+ <div class="caso_estudio">
+ WhatsApp utiliza criptografía híbrida para proteger los mensajes. Esto significa que combina dos tipos de cifrado: asimétrico y simétrico. Primero, emplea un algoritmo asimétrico llamado Elliptic Curve Diffie-Hellman (ECDH) para que los usuarios puedan establecer una clave secreta compartida, sin necesidad de enviarla directamente por la red.
+<p>Una vez que se ha intercambiado esa clave, se utiliza un cifrado simétrico, concretamente AES, para cifrar los mensajes. Este tipo de cifrado es mucho más rápido y eficiente para el intercambio continuo de datos.</p>
+<p>Además del cifrado, WhatsApp garantiza la integridad y autenticidad de los mensajes usando HMAC-SHA256, un código de autenticación basado en hash. Esto sirve para verificar que los mensajes no han sido modificados durante la transmisión.</p>
+<p>Por último, también se implementa forward secrecy o secreto perfecto hacia adelante. Esto significa que las claves simétricas se cambian con frecuencia. Así, si alguien consiguiera acceder a una de las claves de sesión, no podría descifrar mensajes anteriores, ya que cada sesión utiliza claves diferentes.</p>
+ </div> <!-- fin caso de estudio --> 
+<h3 id="firma">Firma </h3>
+<p><a href="%5B./u2c0103.html%5D(https://helpx.adobe.com/es/acrobat/using/certificate-based-signatures.html)">Adobe - Firmas basadas en certificados</a><br>
+Añade tu firma digital a los ejercicios antes de subirlos a Aules. Utiliza tu certificado generado con OpenSSL.</p>
+<h2 id="entrega">Entrega </h2>
+<p>Sube tu archivo de respuestas a Aules.</p>
+<h2 id="criterios-de-evaluación">Criterios de evaluación </h2>
+<p>Se han utilizado sistemas de identificación como las firmas electrónicas y los certificados digitales.</p>
+<h2 id="herramientas-de-evaluación">Herramientas de evaluación </h2>
+<ul>
+<li><strong>Cuestionario (70%)</strong>: preguntas de completar, verdadero/falso, opción múltiple.</li>
+<li><strong>Documento de respuestas (30%)</strong>: respuestas del estudiante entregadas en formato de texto.</li>
+<li></li>
+</ul>
+<div style="page-break-after:always;"></div>  
+<h2 id="anexo-1-cifrado-y-descifrado-de-documentos--gnupg">Anexo 1: Cifrado y descifrado de documentos – GnuPG </h2>
+<h3 id="cifrado-simétrico-1">Cifrado simétrico </h3>
+<p>Un documento puede ser cifrado con un algoritmo simétrico utilizando la opción <code>--symmetric</code> (<code>-c</code>).</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--output</span> archivoCifrado.gpg <span class="token parameter variable">-c</span> archivo
+</code></pre><p>Para descifrar un mensaje, se usa la opción <code>--decrypt</code> (<code>-d</code>):</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token comment"># Opción 1</span>
+$ gpg <span class="token parameter variable">--decrypt</span> archivoCifrado.gpg
+
+<span class="token comment"># Opción 2</span>
+$ gpg <span class="token parameter variable">-d</span> archivoCifrado.gpg
+
+<span class="token comment"># Opción 3</span>
+$ gpg <span class="token parameter variable">-o</span> archivo <span class="token parameter variable">-d</span> archivoCifrado.gpg
+</code></pre><h3 id="cifrado-asimétrico-1">Cifrado asimétrico </h3>
+<h4 id="generación-de-un-nuevo-par-de-claves">Generación de un nuevo par de claves </h4>
+<p>La opción de línea de comandos <code>--gen-key</code> se usa para crear un nuevo par de claves.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg --gen-key
+</code></pre><h4 id="listar-las-claves-públicas-y-privadas">Listar las claves públicas y privadas </h4>
+<p>Para listar las claves públicas de tu anillo de claves, usa la opción <code>--list-keys</code> (<code>-k</code>).</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token comment"># Opción 1</span>
+$ gpg --list-keys
+
+<span class="token comment"># Opción 2</span>
+$ gpg <span class="token parameter variable">-k</span>
+</code></pre><p>Para listar las claves privadas en tu anillo de claves, usa la opción <code>--list-secret-keys</code> (<code>-K</code>).</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token comment"># Opción 1</span>
+$ gpg --list-secret-keys
+
+<span class="token comment"># Opción 2</span>
+$ gpg <span class="token parameter variable">-K</span>
+</code></pre><h4 id="exportar-una-clave-pública">Exportar una clave pública </h4>
+<p>Para enviar tu clave pública, primero debes exportarla empleando <code>--export</code>. Debes proporcionar el identificador de la clave a exportar.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--output</span> clavePublica.key <span class="token parameter variable">--export</span> idClave
+</code></pre><p>La clave se exporta en formato binario, lo cual puede conventirse en inconveniente si  debe enviarse por correo electrónico o publicarse en una página web.<br>
+GnuPG admite la opción <code>--armor</code> (<code>-a</code>) que genera la salida en un formato ASCII similar a los documentos sin codificar.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--export</span> idClave
+</code></pre><h4 id="exportar-una-clave-privada">Exportar una clave privada </h4>
+<p>En la mayoría de los casos, la clave privada no necesita ser exportada y <strong>no debe ser distribuida</strong>.<br>
+Si es necesario, ejecuta el siguiente comando para exportarla:</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token comment"># Opción 1</span>
+$ gpg --export-secret-keys idClave <span class="token operator">&gt;</span> clavePrivada.key
+
+<span class="token comment"># Opción 2 (en formato ASCII)</span>
+$ gpg <span class="token parameter variable">--armor</span> --export-secret-keys idClave <span class="token operator">&gt;</span> clavePrivada.key
+</code></pre><h4 id="importar-una-clave-pública">Importar una clave pública </h4>
+<p>Puedes añadir una clave pública a tu anillo de claves con la opción <code>--import</code>.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--import</span> clavePublica.key
+</code></pre><h4 id="cifrado-de-documentos">Cifrado de documentos </h4>
+<p>Para cifrar un documento, se usa la opción <code>--encrypt</code> (<code>-e</code>).<br>
+Debes tener las claves públicas de los destinatarios.<br>
+El resultado cifrado se coloca en la salida estándar o en el archivo especificado con la opción <code>--output</code>.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code><span class="token comment"># Opción 1</span>
+$ gpg <span class="token parameter variable">--output</span> archivoCifrado.gpg <span class="token parameter variable">--encrypt</span> <span class="token parameter variable">--recipient</span> idClaveDestinatario archivo
+
+<span class="token comment"># Opción 2</span>
+$ gpg <span class="token parameter variable">-o</span> archivoCifrado.gpg <span class="token parameter variable">-e</span> <span class="token parameter variable">-r</span> idClaveDestinatario archivo
+</code></pre><h4 id="descifrado-de-documentos">Descifrado de documentos </h4>
+<p>Para descifrar un mensaje, se usa la opción <code>--decrypt</code> (<code>-d</code>).<br>
+Necesitas la clave privada correspondiente a la clave pública con la que se cifró el mensaje.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">-d</span> archivoCifrado.gpg
+</code></pre><h4 id="distribución-de-claves">Distribución de claves </h4>
+<p>Cuando el número de involucrados en la comunicación es bajo, las claves suelen distribuirse por correo electrónico.<br>
+Los servidores de claves públicas se usan para recopilar y distribuir de forma masiva las claves públicas.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg --send-keys <span class="token parameter variable">--keyserver</span> pgp.rediris.es idClave
+</code></pre><h4 id="generación-de-un-certificado-de-revocación">Generación de un certificado de revocación </h4>
+<p>Después de crear tu par de claves, debes generar inmediatamente un certificado de revocación para la clave utilizando la opción <code>--gen-revoke</code>.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--output</span> revocar.asc --gen-revoke idClave
+</code></pre><h4 id="referencias">Referencias </h4>
+<p><a href="https://www.gnupg.org/gph/en/manual.html">Manual de GnuPG</a><br>
+<a href="https://www.gnupg.org/gph/en/manual/x110.html">Guía de cifrado de GnuPG</a><br>
+<a href="https://www.oreilly.com/library/view/linux-security-cookbook/0596003919/ch07s04.html">Linux Security Cookbook</a></p>
+<div style="page-break-after:always;"></div>  
+<h2 id="anexo-2-creación-y-verificación-de-firmas--gnupg">Anexo 2: Creación y verificación de firmas – GnuPG </h2>
+<p>Una firma digital certifica y fecha un documento, garantizando su integridad desde el momento en que fue firmado. Si el contenido del documento se modifica posteriormente de cualquier forma, la verificación de la firma fallará. Gracias a esta propiedad, una firma digital puede cumplir la misma función que una firma manuscrita, con la ventaja añadida de ser resistente a manipulaciones.</p>
+<p>Un ejemplo práctico de esta tecnología lo encontramos en la distribución del código fuente de GnuPG, que se firma digitalmente para que los usuarios puedan comprobar que no ha sido alterado desde que fue empaquetado.</p>
+<p>El proceso de creación y verificación de firmas digitales se basa en el uso de un par de claves pública y privada, pero sigue un procedimiento distinto al del cifrado y descifrado. La firma se genera utilizando la clave privada del firmante, mientras que su verificación se lleva a cabo con la clave pública correspondiente.</p>
+<p>Como consecuencia, el uso de firmas digitales también tiene un componente de responsabilidad: resulta difícil negar la autoría de una firma, ya que hacerlo implicaría que la clave privada ha sido comprometida.</p>
+<h3 id="firmar-digitalmente">Firmar digitalmente </h3>
+<p>La opción de línea de comandos <code>--sign</code> se usa para crear una firma digital. Se introduce el documento a firmar (<em>doc</em>) y se genera el documento firmado como salida (<em>doc.sig</em>).</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">-u</span> keyID <span class="token parameter variable">--output</span> doc.sig <span class="token parameter variable">--sign</span> doc
+</code></pre><p>El documento se comprime antes de ser firmado y la salida está en formato binario. Dado un documento firmado, puedes bien verificar la firma, bien verificarla y recuperar el documento original.</p>
+<h3 id="verificar-un-documento-firmado">Verificar un documento firmado </h3>
+<p>Para verificar la firma, usa la opción <code>--verify</code>:</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--verify</span> doc.sig
+</code></pre><h3 id="verificar-un-documento-firmado-y-extraer-su-contenido">Verificar un documento firmado y extraer su contenido </h3>
+<p>Para verificar la firma y extraer el documento, usa la opción <code>--decrypt</code>. Se introduce el documento firmado (<em>doc.sig</em>) y se obtiene el documento recuperado como salida (<em>doc</em>).</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--output</span> doc <span class="token parameter variable">--decrypt</span> doc.sig
+</code></pre><h3 id="documentos-con-firma-en-claro">Documentos con firma en claro </h3>
+<p>Un uso común de las firmas digitales es firmar mensajes de correo electrónico. En tales situaciones, no es deseable comprimir el documento mientras se firma. La opción <code>--clearsign</code> hace que el documento quede envuelto en una firma en formato ASCII sin modificarlo.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">-u</span> keyID <span class="token parameter variable">--clearsign</span> doc
+</code></pre><h3 id="firmas-separadas">Firmas separadas </h3>
+<p>Un documento firmado digitalmente tiene una utilidad limitada si no se gestiona adecuadamente. Para verificar su contenido o reutilizarlo, otros usuarios deben recuperar el documento original a partir de la versión firmada. Incluso en el caso de firmas en claro, suele ser necesario editar el documento para extraer el contenido original.<br>
+Por este motivo, existe un tercer método de firma que resulta más práctico: la firma separada (detached signature), que genera un archivo independiente con la firma digital, manteniendo el documento original intacto y sin modificar.</p>
+<p>Una firma separada se crea usando la opción <code>--detach-sig</code>.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg --detach-sign <span class="token parameter variable">-a</span> doc
+</code></pre><p>Tanto el documento (<em>doc</em>) como la firma separada (<em>doc.sig</em>) son necesarios para verificar la firma. La opción <code>--verify</code> se usa para comprobar la firma.</p>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ gpg <span class="token parameter variable">--verify</span> doc.sig doc
+</code></pre><h3 id="referencias-1">Referencias </h3>
+<p><a href="https://www.gnupg.org/gph/en/manual.html">https://www.gnupg.org/gph/en/manual.html</a></p>
+<div style="page-break-after:always;"></div>  
+<h2 id="anexo-3-creación-de-un-certificado-digital-pkcs12-con-openssl">Anexo 3: Creación de un certificado digital PKCS#12 con OpenSSL </h2>
+<p>OpenSSL es una herramienta de línea de comandos de código abierto que implementa funciones criptográficas. Vamos a utilizarla para crear un certificado digital autofirmado.</p>
+<h3 id="1-genera-un-par-de-claves-rsa-pública-y-privada">1. Genera un par de claves RSA (pública y privada) </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ openssl genrsa <span class="token parameter variable">-out</span> tunombre.keys
+</code></pre><h3 id="2-genera-el-certificado-autofirmado">2. Genera el certificado autofirmado </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ openssl req <span class="token parameter variable">-new</span> <span class="token parameter variable">-x509</span> <span class="token parameter variable">-key</span> tunombre.keys <span class="token parameter variable">-days</span> <span class="token number">365</span> <span class="token parameter variable">-out</span> tunombre.cer
+</code></pre><p>Durante la ejecución del comando, se solicitarán los siguientes datos:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Country Name (2 letter code) [AU]:ES
+State or Province Name (full name) [Some-State]:Alicante
+Locality Name (eg, city) []:Alicante
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:IES Doctor Balmis
+Organizational Unit Name (eg, section) []:[2SMRA|2SMRB]
+Common Name (e.g. server FQDN or YOUR name) []:tu nombre
+Email Address []:usuario@alu.edu.gva.es
+</code></pre><h3 id="3-convierte-el-certificado-a-formato-pkcs12">3. Convierte el certificado a formato PKCS#12 </h3>
+<pre data-role="codeBlock" data-info="sh" class="language-bash sh"><code>$ openssl pkcs12 <span class="token parameter variable">-export</span> <span class="token parameter variable">-out</span> tunombre.p12 <span class="token parameter variable">-inkey</span> tunombre.keys <span class="token parameter variable">-in</span> tunombre.cer
+</code></pre><p><span style="color: DarkSlateBlue; font-weight: bold;">Ahora puedes usar <code>tunombre.p12</code> para firmar archivos PDF</span></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
