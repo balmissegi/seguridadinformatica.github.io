@@ -172,7 +172,7 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="apuntes">Apuntes </h1>
+<h1 id="u2-criptografía">U2. Criptografía </h1>
 <p><a href="./u2.pdf">Descargar estos apuntes</a></p>
 <h2 id="índice">Índice </h2>
 
@@ -185,32 +185,11 @@
           <a href="#vocabulario-básico" class="md-toc-link">
             <p>Vocabulario básico</p>
 
-          </a></div><details style="padding:0;;padding-left:0px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#principales-objetivos-de-la-criptografía" class="md-toc-link"><p>Principales objetivos de la criptografía</p>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#confidencialidad-de-datos" class="md-toc-link">
-            <p>Confidencialidad de datos</p>
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#principales-objetivos-de-la-criptografía" class="md-toc-link">
+            <p>Principales objetivos de la criptografía</p>
 
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#integridad-de-datos" class="md-toc-link">
-            <p>Integridad de datos</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#autenticación" class="md-toc-link">
-            <p>Autenticación</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#no-repudio" class="md-toc-link">
-            <p>No repudio</p>
-
-          </a></div>
-        </div>
-      </details>
-    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
           <a href="#criptografía-simétrica-clave-privada" class="md-toc-link">
             <p>Criptografía simétrica (clave privada)</p>
 
@@ -265,43 +244,51 @@
 <li>🔑<strong>Clave</strong> es un dato adicional que recibe el algoritmo de cifrado o descifrado para cada texto a procesa. Los algoritmos de cifrado y descifrado son ampliamente conocidos y su documentación está al alcance de todos. Así, la seguridad del sistema se basa principalmente en la confidencialidad de las claves empleadas.</li>
 </ul>
 <h2 id="principales-objetivos-de-la-criptografía">Principales objetivos de la criptografía </h2>
-<h3 id="confidencialidad-de-datos">Confidencialidad de datos </h3>
+<div class="admonition note">
+<p class="admonition-title">Confidencialidad de los datos</p>
+<p>Conjunto de reglas que impide que la información sensible sea divulgada a personas, recursos o procesos no autorizados.</p>
 <ul>
-<li>Conjunto de reglas que impide que la información sensible sea divulgada a personas, recursos o procesos no autorizados.</li>
-<li><em>Objetivo de la criptografía</em>: ocultar el contenido de un mensaje ante observadores no autorizados.</li>
-<li><em>Herramienta criptográfica empleada</em>: cifrado y descifrado.</li>
+<li><em>Objetivo</em>: Ocultar el contenido de un mensaje ante observadores no autorizados.</li>
+<li><em>Herramienta</em>: Cifrado y descifrado.</li>
 </ul>
-<h3 id="integridad-de-datos">Integridad de datos </h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Integridad de datos</p>
+<p>Garantiza que la información o los procesos del sistema estén protegidos contra modificaciones intencionadas o accidentales</p>
 <ul>
-<li>Garantiza que la información o los procesos del sistema estén protegidos contra modificaciones intencionadas o accidentales.</li>
-<li><em>Objetivo de la criptografía</em>: garantizar que el mensaje no ha sido alterado.</li>
-<li><em>Herramienta criptográfica empleada</em>: funciones hash.</li>
+<li><em>Objetivo</em>: Garantizar que el mensaje no ha sido alterado.</li>
+<li><em>Herramienta</em>: Funciones hash.</li>
 </ul>
-<h3 id="autenticación">Autenticación </h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Autenticación</p>
+<p>Proceso de verificar la identidad de un usuario, sistema o entidad que intenta acceder a un sistema informático o recurso digital.</p>
 <ul>
-<li>Proceso de verificar la identidad de un usuario, sistema o entidad que intenta acceder a un sistema informático o recurso digital.</li>
-<li><em>Objetivo de la criptografía</em>: verificar el origen de un mensaje (creador, tiempo de creación, etc.).</li>
-<li><em>Herramienta criptográfica empleada</em>: firma digital.</li>
+<li><em>Objetivo</em>: Verificar el origen de un mensaje (creador, tiempo de creación, etc.).</li>
+<li><em>Herramienta</em>: Firma digital.</li>
 </ul>
-<h3 id="no-repudio">No repudio </h3>
+</div>
+<div class="admonition note">
+<p class="admonition-title">No repudio</p>
+<p>Garantiza que nadie pueda negar el origen o la autenticidad de un mensaje.</p>
 <ul>
-<li>Garantiza que nadie pueda negar el origen o la autenticidad de un mensaje.</li>
-<li><em>Objetivo de la criptografía</em>: evitar que el remitente niegue haber enviado un mensaje.</li>
-<li><em>Herramienta criptográfica empleada</em>: firma digital.</li>
+<li><em>Objetivo</em>: Evitar que el remitente niegue haber enviado un mensaje.</li>
+<li><em>Herramienta</em>: Firma digital.</li>
 </ul>
+</div>
 <h2 id="criptografía-simétrica-clave-privada">Criptografía simétrica (clave privada) </h2>
 <p>La criptografía de clave simétrica, también conocida como criptografía de clave privada, es un método en el cual se utiliza la <strong>misma clave</strong> tanto para cifrar como para descifrar los mensajes. Las dos partes que se comunican <strong>deben acordar previamente qué clave utilizar</strong> y mantenerla en secreto</p>
 <p><img src="./img/criptografiasimetrica.jpg" alt="Criptografía simétrica" style="display:block; margin:0 auto; width:75%;max-width:300"></p>
 <div class="admonition example">
-<p class="admonition-title">"Ejemplos de algoritmos"</p>
+<p class="admonition-title">Ejemplos de algoritmos</p>
 <p>DES, 3DES, AES.</p>
 </div>
 <div class="admonition success">
-<p class="admonition-title">"Ventajas"</p>
+<p class="admonition-title">Ventajas</p>
 <p>Algoritmos eficientes.</p>
 </div>
 <div class="admonition failure">
-<p class="admonition-title">"Desventajas"</p>
+<p class="admonition-title">Desventajas</p>
 <ul>
 <li>¿Cómo se comparte la clave de manera segura?</li>
 <li>Se necesitan muchas claves para establecer comunicación segura entre múltiples usuarios.</li>
@@ -314,18 +301,18 @@
 <img src="./img/criptografiaasimetrica01.jpg" alt="Criptografía asimétrica" style="display:block; margin:0 auto; width:75%;max-width:300"></p>
 <p>Por otro lado, el emisor puede cifrar el mensaje con su clave privada, de modo que cualquier receptor pueda verificar la autenticidad del mensaje utilizando la clave pública del emisor.</p>
 <div class="admonition example">
-<p class="admonition-title">"Ejemplos de algoritmos"</p>
+<p class="admonition-title">Ejemplos de algoritmos</p>
 <p>RSA, DSA o ECC.</p>
 </div>
 <div class="admonition success">
-<p class="admonition-title">"Ventajas"</p>
+<p class="admonition-title">Ventajas</p>
 <ul>
 <li>No es necesario compartir una clave privada.</li>
 <li>Número de claves empleado bajo.</li>
 </ul>
 </div>
 <div class="admonition failure">
-<p class="admonition-title">"Desventajas"</p>
+<p class="admonition-title">Desventajas</p>
 <p>Los algoritmos requieren muchos recursos computacionales.</p>
 </div>
 <h2 id="criptografía-híbrida">Criptografía híbrida </h2>
@@ -338,12 +325,18 @@
 </ul>
 <p>Una <strong>función resumen</strong> (hash) es una función matemática o un algortimo que aplicada a un conjunto de datos de tamaño ilimitado (por ejemplo, un fichero) obtiene un número (secuencia de bits) de longitud fija, que cumple las siguientes <strong>propiedades</strong>:</p>
 <ul>
-<li>Una función hash siempre obtendrá el mismo valor resumen para el mismo conjunto de datos.<br>
-<img src="./img/determinismo.jpg" alt="Determinismo" style="display:block; margin:0 auto; width:75%;max-width:300"></li>
-<li>No existe un algoritmo rápido para restaurar el conjunto de datos original a partir de su valor hash.<br>
-<img src="./img/irreversibilidad.jpg" alt="Irreversibilidad" style="display:block; margin:0 auto; width:75%;max-width:300"></li>
-<li>Un cambio mínimo en el conjunto de datos da como resultado un valor hash significativamente diferente.<br>
-<img src="./img/efectoavalancha.jpg" alt="Efecto avalancha" style="display:block; margin:0 auto; width:75%;max-width:300"></li>
+<li>
+<p><strong>Determinismo</strong>: Una función hash siempre obtendrá el mismo valor resumen para el mismo conjunto de datos.<br>
+<img src="./img/determinismo.jpg" alt="Determinismo" style="display:block; margin:0 auto; width:75%;max-width:300"></p>
+</li>
+<li>
+<p><strong>Irreversibilidad</strong>: No existe un algoritmo rápido para restaurar el conjunto de datos original a partir de su valor hash.<br>
+<img src="./img/irreversibilidad.jpg" alt="Irreversibilidad" style="display:block; margin:0 auto; width:75%;max-width:300"></p>
+</li>
+<li>
+<p><strong>Efecto avalancha</strong>: Un cambio mínimo en el conjunto de datos da como resultado un valor hash significativamente diferente.<br>
+<img src="./img/efectoavalancha.jpg" alt="Efecto avalancha" style="display:block; margin:0 auto; width:75%;max-width:300"></p>
+</li>
 </ul>
 <p>Las funciones resumen tiene varias aplicaciones, como por ejemplo:</p>
 <ul>
@@ -367,32 +360,20 @@
 </div>
 <h3 id="elementos-de-un-certificado-digital">Elementos de un certificado digital </h3>
 <ul>
-<li>
-<p>Número de identificación.</p>
-</li>
-<li>
-<p>Información del titular (nombre, URL, etc.).</p>
-</li>
-<li>
-<p><strong>Clave pública del titular</strong>.</p>
-</li>
-<li>
-<p>Fecha de expiración.</p>
-</li>
-<li>
-<p>Información de la CA (nombre, organización, etc.).</p>
-</li>
-<li>
-<p><strong>Firma digital de la CA</strong>. Valida la autenticidad e integridad del certificado digital.</p>
+<li>Número de identificación.</li>
+<li>Información del titular (nombre, URL, etc.).</li>
+<li><strong>Clave pública del titular</strong>.</li>
+<li>Fecha de expiración.</li>
+<li>Información de la CA (nombre, organización, etc.).</li>
+<li><strong>Firma digital de la CA</strong>. Valida la autenticidad e integridad del certificado digital.</li>
+</ul>
 <div class="admonition warning">
-<p class="admonition-title">"Importante"</p>
+<p class="admonition-title">Importante</p>
 <p>Un tercero de confianza es una entidad que interviene para facilitar la comunicación o el intercambio entre dos partes que no confían directamente entre sí, pero que ambas reconocen y confían en la legitimidad de ese tercero.</p>
 </div>
-</li>
-</ul>
 <p>Un <strong>certificado autofirmado</strong> contiene la clave pública del emisor y está firmado con su propia clave privada.</p>
 <div class="admonition warning">
-<p class="admonition-title">"Importante"</p>
+<p class="admonition-title">Importante</p>
 <p>Para verificar la firma digital de un certificado, se utiliza la clave pública de la Autoridad de Certificación (CA) emisora. Los sistemas operativos y navegadores incluyen varios certificados autofirmados de CA en las que confían.</p>
 </div>
 <h3 id="consejos-de-seguridad-para-certificados-digitales">Consejos de seguridad para certificados digitales </h3>
