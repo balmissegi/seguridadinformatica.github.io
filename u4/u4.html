@@ -212,10 +212,6 @@
           <a href="#wi-fi-wireless-fidelity" class="md-toc-link">
             <p>Wi-Fi (Wireless Fidelity)</p>
 
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#medidas-de-protección" class="md-toc-link">
-            <p>Medidas de protección</p>
-
           </a></div>
         </div>
       </details>
@@ -260,10 +256,9 @@
 <h4 id="wpa-wi-fi-protected-access">WPA (Wi-Fi Protected Access) </h4>
 <p>Reemplazó a WEP. Utiliza un algoritmo de <strong>cifrado</strong> conocido como <strong>TKIP</strong> (Temporal Key Integrity Protocol) para proporcionar mejor protección de datos. También incorpora un método de <strong>autenticación</strong> llamado <strong>WPA-PSK</strong> (Pre-Shared Key) o WPA Personal, que requiere que los usuarios ingresen una contraseña para acceder a la red. Es <strong>susceptible a ataques de fuerza bruta</strong> contra contraseñas débiles.</p>
 <h4 id="wpa2-wi-fi-protected-access-2">WPA2 (Wi-Fi Protected Access 2) </h4>
-<p>Es el <strong>estándar actual</strong> de seguridad. Utiliza el algoritmo de <strong>cifrado AES</strong> (Advanced Encryption Standard), mucho más fuerte y seguro que TKIP. WPA2 también introduce un método robusto de <strong>autenticación</strong> llamado <strong>IEEE 802.1X/EAP</strong> (Extensible Authentication Protocol).</p>
-<ul>
-<li><strong>WPA3 (Wi-Fi Protected Access 3)</strong>: Introduce nuevas características, incluidos protocolos de <strong>cifrado</strong> más fuertes como <strong>SAE</strong> (Simultaneous Authentication of Equals).</li>
-</ul>
+<p>Ha sido el estándar de seguridad predominante durante muchos años. Utiliza el algoritmo de <strong>cifrado AES</strong> (Advanced Encryption Standard), mucho más fuerte y seguro que TKIP. WPA2 también introduce un método robusto de <strong>autenticación</strong> llamado <strong>IEEE 802.1X/EAP</strong> (Extensible Authentication Protocol).</p>
+<h4 id="wpa3-wi-fi-protected-access-3">WPA3 (Wi-Fi Protected Access 3) </h4>
+<p>Es estándar de seguridad más reciente y el <strong>recomendado en redes Wi-Fi</strong> modernas.Introduce nuevas características, incluidos protocolos de <strong>cifrado</strong> más fuertes como <strong>SAE</strong> (Simultaneous Authentication of Equals).</p>
 <h3 id="wi-fi-wireless-fidelity">Wi-Fi (Wireless Fidelity) </h3>
 <p>IEEE 802.11 es un conjunto de estándares que implementan la comunicación en una WLAN. Comúnmente conocido como Wi-Fi, IEEE 802.11 define los métodos para establecer conexiones, transmitir datos y gestionar el tráfico de red, asegurando interoperabilidad y compatibilidad entre dispositivos.</p>
 <h4 id="estándares-wi-fi-comunes-hoy-en-día">Estándares Wi-Fi comunes hoy en día </h4>
@@ -273,9 +268,9 @@
 <li><strong>IEEE 802.11ax (Wi-Fi 6)</strong>: tasas de datos de hasta varios gigabits por segundo.</li>
 </ul>
 <h4 id="métodos-de-autenticación-wi-fi">Métodos de autenticación Wi-Fi </h4>
-<h5 id="modo-abierto">Modo abierto </h5>
+<h5 id="modo-abierto-open">Modo abierto (Open) </h5>
 <p><strong>Cualquier dispositivo</strong> dentro del radio de alcance <strong>puede conectarse</strong> a la red sin requerir contraseña o autenticación. El cliente inalámbrico envía una solicitud de autenticación al punto de acceso (AP), que acepta sin hacer preguntas. No se necesita clave compartida ni credenciales. Tras la autenticación, el cliente se asocia con el punto de acceso.</p>
-<h5 id="modo-con-clave">Modo con clave </h5>
+<h5 id="modo-personal-wpa---psk">Modo personal (WPA - PSK) </h5>
 <p>Utiliza una <strong>clave compartida</strong> (PSK - pre-shared key) o contraseña para la autenticación y el cifrado. El proceso de autenticación consiste en cuatro pasos:</p>
 <ol>
 <li>El cliente envía una solicitud de autenticación al punto de acceso.</li>
@@ -283,7 +278,7 @@
 <li>El cliente cifra desafío usando la clave compartida  y lo envía de vuelta al punto de acceso.</li>
 <li>El punto de acceso descifra la respuesta y la verifica. Si la verificación es correcta, la autenticación es exitosa; de lo contrario, devuelve un error.</li>
 </ol>
-<h5 id="radius-remote-authentication-dial-in-user-service">RADIUS (Remote Authentication Dial-In User Service) </h5>
+<h5 id="modo-empresarial-wpa-enterprise-con-8021x">Modo empresarial (WPA-Enterprise con 802.1X) </h5>
 <p>La autenticación de usuarios se centraliza a través de un servidor RADIUS, que almacena las credenciales de los usuarios y maneja las solicitudes de autenticación desde los puntos de acceso Wi-Fi. El proceso de autenticación IEEE 802.1X EAP incluye seis pasos:</p>
 <ol>
 <li>El cliente envía una solicitud de autenticación y se asocia al punto de acceso.</li>
@@ -293,14 +288,6 @@
 <li>En base a la verificación, el servidor RADIUS envía un mensaje de aceptación o rechazo al punto de acceso.</li>
 <li>Si se concede el acceso, el punto de acceso permite que el cliente se conecte y acceda a la red.</li>
 </ol>
-<h3 id="medidas-de-protección">Medidas de protección </h3>
-<p>Además de emplear métodos de cifrado para asegurar una red inalámbrica, se pueden tomar medidas adicionales para mejorar la seguridad en casa:</p>
-<ul>
-<li>Desactivar la difusión del SSID.</li>
-<li>Habilitar el filtrado de direcciones MAC.</li>
-<li>Desactivar el servicio DHCP.</li>
-<li>Desactivar WPS (Wi-Fi Protected Setup).</li>
-</ul>
 <h2 id="cortafuegos">Cortafuegos </h2>
 <p>Un <strong>cortafuegos</strong> es un dispositivo de seguridad de red que monitoriza el tráfico entrante y saliente y filtra paquetes basándose en reglas. Puede ser  hardware, software, software como servicio (SaaS), nube pública o nube privada (virtual).</p>
 <p>Los cortafuegos son herramientas importantes en la seguridad de redes  ya que ayudan a proteger los sistemas del acceso no autorizado y del tráfico perjudicial. <strong>Controlan y filtran el flujo de datos entre una red y fuentes externas, mejoran la seguridad bloqueando datos peligrosos y permiten un mejor control sobre la red</strong>.</p>
