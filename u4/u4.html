@@ -179,9 +179,7 @@
 <div class="md-toc">
 <details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#1-protocolos-seguros" class="md-toc-link"><ol>
-<li>Protocolos seguros</li>
-</ol>
+          <a href="#protocolos-seguros" class="md-toc-link"><p>Protocolos seguros</p>
 </a>
           </summary>
         <div>
@@ -202,9 +200,7 @@
       </details>
     <details style="padding:0;;padding-left:0px;" open="">
         <summary class="md-toc-link-wrapper">
-          <a href="#2-redes-de-área-local-inalámbricas-wlan" class="md-toc-link"><ol start="2">
-<li>Redes de área local inalámbricas (WLAN)</li>
-</ol>
+          <a href="#redes-de-área-local-inalámbricas-wlan" class="md-toc-link"><p>Redes de área local inalámbricas (WLAN)</p>
 </a>
           </summary>
         <div>
@@ -223,28 +219,17 @@
           </a></div>
         </div>
       </details>
-    <details style="padding:0;;padding-left:0px;" open="">
-        <summary class="md-toc-link-wrapper">
-          <a href="#3-cortafuegos-y-proxies" class="md-toc-link"><ol start="3">
-<li>Cortafuegos y proxies</li>
-</ol>
-</a>
-          </summary>
-        <div>
-          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#cortafuegos-firewall" class="md-toc-link">
-            <p>Cortafuegos (Firewall)</p>
-
-          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
-          <a href="#proxy" class="md-toc-link">
-            <p>Proxy</p>
-
-          </a></div>
-        </div>
-      </details>
     <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
-          <a href="#cortafuegos-vs-proxy" class="md-toc-link">
-            <p>Cortafuegos vs Proxy</p>
+          <a href="#cortafuegos" class="md-toc-link">
+            <p>Cortafuegos</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#ingeniería-social-y-fraudes-informáticos" class="md-toc-link">
+            <p>Ingeniería social y fraudes informáticos</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#publicidad-y-correo-no-deseado-en-redes" class="md-toc-link">
+            <p>Publicidad y correo no deseado en redes</p>
 
           </a></div>
 </div>
@@ -252,7 +237,7 @@
 <p class="admonition-title">Introducción</p>
 <p>La seguridad de redes consiste en las políticas y prácticas adoptadas para prevenir y monitorear el acceso no autorizado, el uso indebido, la modificación o la denegación de una red informática y de los recursos accesibles a través de ella. Se refiere a cualquier actividad diseñada para proteger la usabilidad e integridad de la red y sus datos. Incluye tecnologías tanto hardware como  software.</p>
 </div>
-<h2 id="1-protocolos-seguros">1. Protocolos seguros </h2>
+<h2 id="protocolos-seguros">Protocolos seguros </h2>
 <p>Los protocolos TCP y UDP sobre IP no utilizan mecanismos de cifrado o autenticación para la transmisión de datos. Por tanto, <strong>los protocolos a nivel de aplicación</strong> que dependen de TCP/IP o UDP/IP, como HTTP, FTP, SMTP, POP, DNS, DHCP, TELNET, etc., <strong>no garantizan ni la confidencialidad ni la integridad</strong>. Esto puede llevar, por ejemplo, al envío de contraseñas en texto claro si el protocolo a nivel de aplicación proporciona algún mecanismo de autenticación (como por ejemplo en un formulario web).</p>
 <p>Para mejorar la seguridad de las comunicaciones, se han establecido varias extensiones del pila de protocolos TCP/IP estándar :</p>
 <h3 id="ipsec-internet-protocol-security">IPsec (Internet Protocol Security) </h3>
@@ -261,7 +246,12 @@
 <p>Es una <strong>capa adicional sobre TCP</strong>, que proporciona comunicaciones seguras a los protocolos de aplicación.</p>
 <h3 id="ssh-secure-shell">SSH (Secure Shell) </h3>
 <p>Es un <strong>protocolo de capa de aplicación</strong> que permite la operación remota de ordenadores y la transferencia de datos mediante comunicación segura. También define una función llamada "port forwarding" que permite el uso de una conexión SSH segura para mensajes correspondientes a otros protocolos a nivel de aplicación. De este modo es posible, por ejemplo, acceder de forma segura a un servidor FTP estándar (inseguro).</p>
-<h2 id="2-redes-de-área-local-inalámbricas-wlan">2. Redes de área local inalámbricas (WLAN) </h2>
+<p><strong>IPSec, SSL/TLS o SSH</strong> no solo protegen las comunicaciones en redes inalámbricas o a través de Internet, sino que también <strong>se aplican a redes cableadas para evitar la monitorización del tráfico y la captura de datos por parte de terceros</strong>. De este modo, incluso en una LAN, es recomendable cifrar el tráfico entre dispositivos para garantizar la confidencialidad de la información.</p>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Además de implementar protocolos seguros para proteger las comunicaciones, <strong>es fundamental inventariar</strong> y controlar <strong>los servicios de red</strong> que están <strong>activos</strong> en una infraestructura. Cada servicio que se ejecuta sobre TCP/IP representa una posible vulnerabilidad si no se supervisa adecuadamente. Por ello, mantener un registro actualizado de los servicios disponibles, así como aplicar políticas de seguridad específicas (como desactivar los innecesarios o restringir el acceso a ciertos puertos y protocolos), permite reducir las posibilidades de ataque y garantizar que las comunicaciones seguras como SSH, SSL/TLS o IPsec se utilicen de forma efectiva.</p>
+</div>
+<h2 id="redes-de-área-local-inalámbricas-wlan">Redes de área local inalámbricas (WLAN) </h2>
 <p>Las redes de área local inalámbricas (<strong>WLAN</strong>) son redes dentro de un área localizada donde los dispositivos se comunican utilizando <strong>señales de radiofrecuencia en lugar de cables físicos</strong>. En las WLAN, múltiples dispositivos comparten una parte del espectro de radiofrecuencia para transmitir datos, lo que permite la conectividad inalámbrica.</p>
 <p>Las WLAN ofrecen la <strong>ventaja de la movilidad</strong>, permitiendo a los usuarios conectarse desde cualquier lugar dentro del área de cobertura sin estar atados a una ubicación específica. <strong>Sin embargo</strong>, las WLAN <strong>transmiten datos</strong> por el aire, lo que las hace <strong>susceptibles a ser interceptadas</strong> por cualquier dispositivo dentro del rango. Debido a esta vulnerabilidad, es <strong>esencial</strong> implementar métodos robustos de <strong>cifrado y autenticación</strong>.</p>
 <h3 id="mecanismos-de-autenticación-y-cifrado-en-wlan">Mecanismos de autenticación y cifrado en WLAN </h3>
@@ -275,40 +265,34 @@
 <li><strong>WPA3 (Wi-Fi Protected Access 3)</strong>: Introduce nuevas características, incluidos protocolos de <strong>cifrado</strong> más fuertes como <strong>SAE</strong> (Simultaneous Authentication of Equals).</li>
 </ul>
 <h3 id="wi-fi-wireless-fidelity">Wi-Fi (Wireless Fidelity) </h3>
-<p>IEEE 802.11 es un conjunto de estándares para implementar comunicación de red de área local inalámbrica (WLAN). Comúnmente conocido como Wi-Fi, IEEE 802.11 define los métodos para establecer conexiones, transmitir datos y gestionar el tráfico de red, asegurando interoperabilidad y compatibilidad entre dispositivos.</p>
-<p>Estándares Wi-Fi comunes hoy en día:</p>
+<p>IEEE 802.11 es un conjunto de estándares que implementan la comunicación en una WLAN. Comúnmente conocido como Wi-Fi, IEEE 802.11 define los métodos para establecer conexiones, transmitir datos y gestionar el tráfico de red, asegurando interoperabilidad y compatibilidad entre dispositivos.</p>
+<h4 id="estándares-wi-fi-comunes-hoy-en-día">Estándares Wi-Fi comunes hoy en día </h4>
 <ul>
 <li><strong>IEEE 802.11n</strong>: tasas de datos de hasta 600 Mbps.</li>
 <li><strong>IEEE 802.11ac</strong>: tasas de datos de hasta varios gigabits por segundo.</li>
 <li><strong>IEEE 802.11ax (Wi-Fi 6)</strong>: tasas de datos de hasta varios gigabits por segundo.</li>
 </ul>
 <h4 id="métodos-de-autenticación-wi-fi">Métodos de autenticación Wi-Fi </h4>
-<ul>
-<li>
-<p><strong>Modo abierto</strong>: Cualquier dispositivo dentro del alcance puede conectarse a la red sin requerir contraseña o autenticación. El cliente inalámbrico envía una solicitud de autenticación al punto de acceso (AP), que acepta sin hacer preguntas. No se necesita clave compartida ni credenciales. Luego el cliente se asocia al AP.</p>
-</li>
-<li>
-<p><strong>Modo con clave</strong>: Utiliza una clave compartida (PSK) o frase de paso para autenticación y cifrado. El proceso de autenticación involucra cuatro pasos:</p>
+<h5 id="modo-abierto">Modo abierto </h5>
+<p><strong>Cualquier dispositivo</strong> dentro del radio de alcance <strong>puede conectarse</strong> a la red sin requerir contraseña o autenticación. El cliente inalámbrico envía una solicitud de autenticación al punto de acceso (AP), que acepta sin hacer preguntas. No se necesita clave compartida ni credenciales. Tras la autenticación, el cliente se asocia con el punto de acceso.</p>
+<h5 id="modo-con-clave">Modo con clave </h5>
+<p>Utiliza una <strong>clave compartida</strong> (PSK - pre-shared key) o contraseña para la autenticación y el cifrado. El proceso de autenticación consiste en cuatro pasos:</p>
 <ol>
-<li>El cliente envía una solicitud de autenticación abierta al AP.</li>
-<li>El AP envía un texto de desafío aleatorio al cliente.</li>
-<li>El cliente cifra el texto de desafío usando la clave compartida y lo envía de vuelta al AP.</li>
-<li>El AP descifra la respuesta y la verifica. Si coincide, la autenticación es exitosa; de lo contrario, falla.</li>
+<li>El cliente envía una solicitud de autenticación al punto de acceso.</li>
+<li>El punto de acceso envía un texto llamado desafío al cliente.</li>
+<li>El cliente cifra desafío usando la clave compartida  y lo envía de vuelta al punto de acceso.</li>
+<li>El punto de acceso descifra la respuesta y la verifica. Si la verificación es correcta, la autenticación es exitosa; de lo contrario, devuelve un error.</li>
 </ol>
-</li>
-<li>
-<p><strong>RADIUS (Remote Authentication Dial-In User Service)</strong>: La autenticación de usuarios se centraliza a través de un servidor RADIUS, que almacena las credenciales de los usuarios y maneja las solicitudes de autenticación desde los puntos de acceso Wi-Fi. El proceso de autenticación IEEE 802.1X EAP incluye seis pasos:</p>
+<h5 id="radius-remote-authentication-dial-in-user-service">RADIUS (Remote Authentication Dial-In User Service) </h5>
+<p>La autenticación de usuarios se centraliza a través de un servidor RADIUS, que almacena las credenciales de los usuarios y maneja las solicitudes de autenticación desde los puntos de acceso Wi-Fi. El proceso de autenticación IEEE 802.1X EAP incluye seis pasos:</p>
 <ol>
-<li>El cliente envía una solicitud de autenticación abierta y se asocia al AP.</li>
-<li>El AP reenvía la solicitud al servidor RADIUS mientras bloquea todo el tráfico excepto el de autenticación.</li>
-<li>El servidor RADIUS solicita las credenciales del usuario (por ejemplo, nombre de usuario y contraseña) a través del AP.</li>
+<li>El cliente envía una solicitud de autenticación y se asocia al punto de acceso.</li>
+<li>El punto de acceso reenvía la solicitud al servidor RADIUS mientras bloquea todo el tráfico excepto el de autenticación.</li>
+<li>El servidor RADIUS solicita las credenciales del usuario (por ejemplo, nombre de usuario y contraseña) a través del punto de acceso.</li>
 <li>El servidor RADIUS verifica las credenciales usando su base de datos o un directorio externo (como LDAP o Active Directory).</li>
-<li>En base a la verificación, el servidor RADIUS envía un mensaje de aceptación o rechazo al AP.</li>
-<li>Si se concede el acceso, el AP permite que el cliente se conecte y acceda a la red.</li>
+<li>En base a la verificación, el servidor RADIUS envía un mensaje de aceptación o rechazo al punto de acceso.</li>
+<li>Si se concede el acceso, el punto de acceso permite que el cliente se conecte y acceda a la red.</li>
 </ol>
-</li>
-</ul>
-<hr>
 <h3 id="medidas-de-protección">Medidas de protección </h3>
 <p>Además de emplear métodos de cifrado para asegurar una red inalámbrica, se pueden tomar medidas adicionales para mejorar la seguridad en casa:</p>
 <ul>
@@ -317,52 +301,31 @@
 <li>Desactivar el servicio DHCP.</li>
 <li>Desactivar WPS (Wi-Fi Protected Setup).</li>
 </ul>
-<hr>
-<h2 id="3-cortafuegos-y-proxies">3. Cortafuegos y proxies </h2>
-<p>Los cortafuegos y proxies son herramientas importantes en la seguridad de redes que ayudan a proteger los sistemas del acceso no autorizado y del tráfico perjudicial. Controlan y filtran el flujo de datos entre una red y fuentes externas. Juntos, mejoran la seguridad bloqueando datos peligrosos y permitiendo un mejor control sobre la red.</p>
-<h3 id="cortafuegos-firewall">Cortafuegos (Firewall) </h3>
-<p>Un cortafuegos es un dispositivo de seguridad de red que monitoriza el tráfico de red entrante y saliente y filtra paquetes basándose en reglas. Un cortafuegos puede ser de tipo hardware, software, software como servicio (SaaS), nube pública o nube privada (virtual).</p>
-<h3 id="proxy">Proxy </h3>
-<p>Un servidor proxy es una aplicación que pasa datos entre un cliente que solicita un recurso y el servidor que lo proporciona. El proxy en sí puede ser un sistema informático o un enrutador, y puede residir en el ordenador local del usuario o en cualquier punto entre el ordenador del usuario y los servidores de destino en Internet.</p>
-<p>Los proxies actúan como intermediarios entre los clientes que solicitan un recurso y el servidor que lo proporciona. En lugar de conectarse directamente a un servidor, el cliente dirige la solicitud al servidor proxy, que evalúa la solicitud y realiza la transacción de red requerida. Esto sirve para simplificar o controlar la complejidad de la solicitud, o proporcionar beneficios adicionales como balanceo de carga, privacidad o seguridad.</p>
-<p>Un servidor proxy que pasa solicitudes y respuestas sin modificar se llama generalmente "gateway" o, a veces, "proxy de túnel".</p>
+<h2 id="cortafuegos">Cortafuegos </h2>
+<p>Un <strong>cortafuegos</strong> es un dispositivo de seguridad de red que monitoriza el tráfico entrante y saliente y filtra paquetes basándose en reglas. Puede ser  hardware, software, software como servicio (SaaS), nube pública o nube privada (virtual).</p>
+<p>Los cortafuegos son herramientas importantes en la seguridad de redes  ya que ayudan a proteger los sistemas del acceso no autorizado y del tráfico perjudicial. <strong>Controlan y filtran el flujo de datos entre una red y fuentes externas, mejoran la seguridad bloqueando datos peligrosos y permiten un mejor control sobre la red</strong>.</p>
+<h2 id="ingeniería-social-y-fraudes-informáticos">Ingeniería social y fraudes informáticos </h2>
+<p>Uno de los mayores riesgos para la seguridad en redes no reside únicamente en las vulnerabilidades técnicas, sino en la manipulación de los usuarios mediante técnicas de <strong>ingeniería social</strong>. Este tipo de amenazas aprovecha la confianza, la desinformación o el descuido de las personas para obtener acceso no autorizado a sistemas, redes o información sensible, afectando directamente la confidencialidad e integridad de los datos.</p>
+<p>Aunque la implementación de <strong>protocolos seguros</strong> como SSH, TLS o IPsec, y el uso de <strong>mecanismos de autenticación robustos</strong> en redes inalámbricas, ofrecen una capa importante de protección técnica, estos sistemas pueden verse comprometidos si un atacante logra engañar a un usuario para que revele sus credenciales o desactive medidas de seguridad. De igual forma, <strong>un cortafuegos correctamente configurado</strong> puede ser ineficaz si el acceso es facilitado involuntariamente por el propio usuario.</p>
+<p>Entre las técnicas de ingeniería social más comunes se encuentran:</p>
 <ul>
-<li><strong>Proxy directo (Forward Proxy)</strong>: Se usa para recuperar datos desde una amplia gama de fuentes.</li>
-<li><strong>Proxy inverso (Reverse Proxy)</strong>: Normalmente se usa de forma interna como interfaz para controlar y proteger el acceso a un servidor en una red privada.</li>
+<li><strong>Phishing</strong>: mensajes o sitios web falsos que simulan ser entidades legítimas para engañar al usuario y obtener información confidencial.</li>
+<li><strong>Vishing</strong>: variante del phishing a través de llamadas telefónicas.</li>
+<li><strong>Smishing</strong>: engaños por medio de mensajes SMS con enlaces maliciosos.</li>
+<li><strong>Pretexting</strong>: el atacante se hace pasar por una figura de autoridad o una situación creíble para solicitar datos personales.</li>
+<li><strong>Baiting</strong>: se ofrece un recurso tentador (como una memoria USB aparentemente abandonada) que contiene malware.</li>
 </ul>
-<hr>
-<h2 id="cortafuegos-vs-proxy">Cortafuegos vs Proxy </h2>
-<table>
-<thead>
-<tr>
-<th>Característica</th>
-<th>Cortafuegos</th>
-<th>Proxy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Función principal</td>
-<td>Controla el tráfico de red y bloquea conexiones no autorizadas</td>
-<td>Intermedia las solicitudes entre clientes y servidores</td>
-</tr>
-<tr>
-<td>Nivel de funcionamiento</td>
-<td>Red o transporte</td>
-<td>Aplicación</td>
-</tr>
-<tr>
-<td>Protección contra ataques externos</td>
-<td>Sí</td>
-<td>Sí</td>
-</tr>
-<tr>
-<td>Capa de filtrado</td>
-<td>Paquetes, puertos, direcciones IP</td>
-<td>Contenido, URLs, aplicaciones</td>
-</tr>
-</tbody>
-</table>
+<p>Estas prácticas demuestran que, más allá de las herramientas tecnológicas, la <strong>concienciación de los usuarios y la formación en ciberseguridad</strong> son elementos esenciales en cualquier estrategia de protección de redes. Solo mediante la combinación de tecnología, buenas prácticas y vigilancia activa se puede reducir efectivamente la probabilidad de un de ataque.</p>
+<h2 id="publicidad-y-correo-no-deseado-en-redes">Publicidad y correo no deseado en redes </h2>
+<p>Además de las amenazas técnicas y humanas, las redes informáticas también están expuestas a un alto volumen de <strong>tráfico no deseado</strong> generado por <strong>publicidad invasiva, spam y correos electrónicos maliciosos</strong>. Este tipo de tráfico, aunque no siempre implique un ataque directo, puede afectar el rendimiento de la red, saturar los recursos del sistema y <strong>facilitar la entrada de otras amenazas</strong> como el malware. La <strong>minimización del tráfico no deseado</strong> es una medida clave para optimizar la seguridad y eficiencia de la red.</p>
+<p>Desde el punto de vista del usuario, es importante adoptar prácticas como:</p>
+<ul>
+<li>No hacer clic en enlaces sospechosos o anuncios emergentes.</li>
+<li>No compartir direcciones de correo en sitios públicos.</li>
+<li>Utilizar navegadores y extensiones que bloqueen scripts de publicidad (adblockers).</li>
+<li>Configurar adecuadamente los filtros de spam en los clientes de correo.</li>
+</ul>
+<p>Este tipo de medidas, junto con el uso de <strong>protocolos seguros de comunicación</strong> y una <strong>configuración adecuada de los servicios de red</strong>, ayudan a mantener el entorno más limpio, eficiente y protegido.</p>
 
       </div>
       
